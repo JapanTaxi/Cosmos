@@ -11,7 +11,7 @@ class ViewController: UIViewController {
   
   @IBOutlet weak var ratingSlider: UISlider!
   @IBOutlet weak var ratingLabel: UILabel!
-  private let startRating:Float = 3.7
+  fileprivate let startRating:Float = 3.7
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -33,7 +33,7 @@ class ViewController: UIViewController {
     updateRating()
   }
   
-  private func updateRating() {
+  fileprivate func updateRating() {
     let value = Double(ratingSlider.value)
     cosmosViewFull.rating = value
     cosmosViewHalf.rating = value
@@ -42,17 +42,17 @@ class ViewController: UIViewController {
     self.ratingLabel.text = ViewController.formatValue(value)
   }
   
-  private class func formatValue(_ value: Double) -> String {
+  fileprivate class func formatValue(_ value: Double) -> String {
     return String(format: "%.2f", value)
   }
   
-  private func didTouchCosmos(_ rating: Double) {
+  fileprivate func didTouchCosmos(_ rating: Double) {
     ratingSlider.value = Float(rating)
     ratingLabel.text = ViewController.formatValue(rating)
     ratingLabel.textColor = UIColor(red: 133/255, green: 116/255, blue: 154/255, alpha: 1)
   }
   
-  private func didFinishTouchingCosmos(_ rating: Double) {
+  fileprivate func didFinishTouchingCosmos(_ rating: Double) {
     ratingSlider.value = Float(rating)
     self.ratingLabel.text = ViewController.formatValue(rating)
     ratingLabel.textColor = UIColor(red: 183/255, green: 186/255, blue: 204/255, alpha: 1)
